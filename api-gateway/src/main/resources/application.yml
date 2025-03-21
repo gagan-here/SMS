@@ -14,11 +14,15 @@ spring:
           uri: lb://STUDENT-SERVICE
           predicates:
             - Path=/students/**
+          filters:
+            - name: AuthenticationFilter
 
         - id: teacher-service
           uri: lb://TEACHER-SERVICE
           predicates:
             - Path=/teachers/**
+          filters:
+            - name: AuthenticationFilter
 
         - id: auth-service
           uri: lb://AUTH-SERVICE

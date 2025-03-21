@@ -1,4 +1,4 @@
-package com.sms.auth_service.enums;
+package com.sms.api_gateway.enums;
 
 public enum Roles {
   TEACHER,

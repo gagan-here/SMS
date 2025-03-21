@@ -5,6 +5,7 @@ import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.function.Function;
 import javax.crypto.SecretKey;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,8 +27,8 @@ public class JwtService {
   }
 
   // Extract the role from the token
-  public String getRoleFromToken(String token) {
-    return getClaimFromToken(token, claims -> claims.get("role", String.class));
+  public List<String> getRoleFromToken(String token) {
+    return getClaimFromToken(token, claims -> claims.get("roles", List.class));
   }
 
   // Generic method to extract a claim from the token
