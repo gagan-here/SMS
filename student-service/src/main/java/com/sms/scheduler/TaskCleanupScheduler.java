@@ -17,8 +17,7 @@ public class TaskCleanupScheduler {
 
   private final TaskRepository taskRepository;
 
-  //  @Scheduled(cron = "0 0 * * * ?") // Runs every hour
-  @Scheduled(cron = "0 * * * * ?") // Runs every minute
+  @Scheduled(cron = "0 0 * * * ?") // Runs every hour
   @Transactional
   public void removeCompletedTasks() {
     log.info("Running scheduled cleanup for completed tasks...");
