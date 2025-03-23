@@ -2,6 +2,10 @@ kafka.topic:
   task-created-topic: task-created-topic
 
 spring:
+  redis:
+    host: localhost
+    posrt: 6379
+
   kafka:
     bootstrap-servers: localhost:9092
     producer:
