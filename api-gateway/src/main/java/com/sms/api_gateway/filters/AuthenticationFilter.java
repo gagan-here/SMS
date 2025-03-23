@@ -47,7 +47,7 @@ public class AuthenticationFilter
 
       final String token = tokenHeader.split("Bearer ")[1];
 
-      // Validate token integrity and expiration
+      // Validate token
       if (!jwtService.validateToken(token)) {
         exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
         log.error("Invalid or expired token");
