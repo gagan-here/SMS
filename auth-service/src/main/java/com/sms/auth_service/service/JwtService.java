@@ -1,7 +1,6 @@
 package com.sms.auth_service.service;
 
 import com.sms.auth_service.entity.User;
-import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import java.nio.charset.StandardCharsets;
@@ -29,11 +28,5 @@ public class JwtService {
         .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 100))
         .signWith(getSecretKey())
         .compact();
-  }
-
-  public Long getUserIdFromToken(String token) {
-    Claims claims =
-        Jwts.parser().verifyWith(getSecretKey()).build().parseSignedClaims(token).getPayload();
-    return Long.valueOf(claims.getSubject());
   }
 }
